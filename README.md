@@ -1,6 +1,6 @@
 # Spot Hub Sample Code
 
-## A Progressive Web App designed to map action sports locations and user-generated media on a global scale
+**A Progressive Web App designed to map action sports locations and user-generated media on a global scale**
 
 The following repo contains sample code and unit tests from Spot Hub, including:
 
