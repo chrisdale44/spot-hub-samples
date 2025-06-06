@@ -1,4 +1,4 @@
-## Spot Book Sample Code
+## Spot Hub Sample Code
 
 The following repo contains sample code and unit tests from the Spot Hub codebase, including:
 
