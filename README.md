@@ -1,7 +1,8 @@
 ## Spot Hub Sample Code
 
 [spot-hub.app](https://spot-hub.app)
-Demo credentials: ___spothubdemo@gmail.com / spothub123\_\_\_
+
+**Demo credentials:** *spothubdemo@gmail.com* / _spothub123_
 
 The following repo contains sample code and unit tests from Spot Hub, including:
 
