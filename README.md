@@ -1,6 +1,6 @@
 ## Spot Book Sample Code
 
-The following repo contains sample code from the Spot Hub codebase, including:
+The following repo contains sample code and unit tests from the Spot Hub codebase, including:
 
 Components:
 
@@ -28,4 +28,4 @@ Postgres functions:
 
 The main Spot Hub repo is currently private for security reasons but access can be granted upon request.
 
-For further implementation details see: [Spot Hub Technical Overview](https://chrisdale44.github.io/spot-hub/)
+For further implementation details see the [Spot Hub Technical Overview](https://chrisdale44.github.io/spot-hub/)
