@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { IoClose } from "@/icons";
-import { filterOptions, boldenString } from "./utils.jsx";
+import { filterOptions, boldenString } from "./utils";
 
 const ComboBox = ({
   allOptions,
@@ -36,7 +36,7 @@ const ComboBox = ({
 
   const handleOnKeyDown = (e) => {
     e.persist();
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 || e.key === "Enter") {
       e.preventDefault();
       onSubmit(e.target.value);
       if (!onClear) {
@@ -67,7 +67,7 @@ const ComboBox = ({
   };
 
   return (
-    <div className="relative mb-[10px] h-full">
+    <div className="relative mb-[10px] h-full" data-testid="combobox">
       <div className="relative">
         <input
           ref={inputRef}
@@ -81,6 +81,7 @@ const ComboBox = ({
           onFocus={() => setIsFocused(true)}
           onBlur={handleOnBlur}
           placeholder={placeholder}
+          data-testid="combobox-input"
         />
         {value && (
           <button
@@ -88,7 +89,7 @@ const ComboBox = ({
             className="bg-transparent absolute top-[4px] right-[2px] p-[6px] cursor-pointer text-[16px] leading-[16px] text-[#666]"
             onClick={handleClear}
           >
-            <IoClose className="w-5 h-5" />
+            <IoClose className="w-5 h-5" data-testid="close-icon" />
           </button>
         )}
       </div>
