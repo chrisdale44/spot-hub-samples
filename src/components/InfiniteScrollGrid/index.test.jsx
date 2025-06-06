@@ -108,7 +108,7 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
     expect(screen.getAllByTestId("tile")).toHaveLength(10);
   });
 
-  it("resets chunks when items array changes length", async () => {
+  it("should reset chunks when items array changes length", async () => {
     const { rerender } = render(
       <InfiniteScrollGrid
         items={mockItems.slice(0, 10)}

@@ -13,7 +13,6 @@ const InfiniteScrollGrid = memo(
     const [chunkIndex, setChunkIndex] = useState(0);
     const [chunkedItems, setChunkedItems] = useState([]);
     const [displayedItems, setDisplayedItems] = useState([]);
-    const prevItemsLengthRef = useRef(items?.length || 0);
 
     useEffect(() => {
       if (!chunkedItems.length) {
@@ -28,28 +27,10 @@ const InfiniteScrollGrid = memo(
     }, [chunkIndex, chunkedItems]);
 
     useEffect(() => {
-      const shouldReset =
-        Math.abs((items?.length || 0) - prevItemsLengthRef.current) !== 0;
-
-      if (shouldReset) {
-        setChunkIndex(0);
-        setChunkedItems(chunk(items, chunkSize));
-      } else {
-        // Just update the chunked items without resetting the chunkIndex
-        const newChunkedItems = chunk(items, chunkSize);
-        setChunkedItems(newChunkedItems);
-
-        // Rebuild displayedItems based on current chunkIndex
-        const newDisplayedItems = [];
-        for (let i = 0; i <= chunkIndex && i < newChunkedItems.length; i++) {
-          newDisplayedItems.push(...newChunkedItems[i]);
-        }
-        setDisplayedItems(newDisplayedItems);
-      }
-
-      prevItemsLengthRef.current = items?.length || 0;
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [items, chunkSize]); // intentionally not including chunkIndex here
+      setChunkIndex(0);
+      setDisplayedItems([]); // Clear displayed items when items change
+      setChunkedItems(chunk(items, chunkSize));
+    }, [items, chunkSize]);
 
     const handleInfiniteScroll = () => {
       if (chunkIndex < chunkedItems.length - 1) {

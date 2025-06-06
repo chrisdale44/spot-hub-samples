@@ -11,7 +11,7 @@ describe("UTIL: filterSpotsById", () => {
       ];
       const id = 2;
       const result = filterSpotsById(spots, id);
-      expect(result).toEqual([{ id: 2, name: "Spot 2" }]);
+      expect(result).toEqual({ id: 2, name: "Spot 2" });
     });
   });
 });
