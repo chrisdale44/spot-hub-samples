@@ -14,7 +14,6 @@ const InfiniteScrollGrid = memo(
     const [chunkedItems, setChunkedItems] = useState([]);
     const [displayedItems, setDisplayedItems] = useState([]);
     const prevItemsLengthRef = useRef(items?.length || 0);
-    console.log(displayedItems);
 
     useEffect(() => {
       if (!chunkedItems.length) {

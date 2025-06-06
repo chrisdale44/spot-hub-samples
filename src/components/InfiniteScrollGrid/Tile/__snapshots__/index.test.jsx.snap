@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: Tile > matches snapshot with thumb 1`] = `
+<div>
+  <div
+    class="relative flex flex-[1_1_200px] aspect-square min-w-[140px] lg:min-w-[180px] max-w-[225px] cursor-pointer overflow-hidden bg-[white] p-0"
+  >
+    <a
+      class="absolute inset-x-0 top-0 z-[1] m-0 bg-[rgba(44,44,44,0.7)] p-1 text-[white] text-xs whitespace-nowrap overflow-hidden truncate"
+      data-testid="tile-name"
+    >
+      Test Item
+    </a>
+    <img
+      alt="Test Item"
+      class="inset-0"
+      data-test-fill="true"
+      data-test-unoptimized="true"
+      data-testid="tile-image"
+      decoding="async"
+      loading="lazy"
+      src="test-thumb.jpg"
+    />
+  </div>
+</div>
+`;
+
+exports[`COMPONENT: Tile > matches snapshot without thumb 1`] = `
+<div>
+  <div
+    class="relative flex flex-[1_1_200px] aspect-square min-w-[140px] lg:min-w-[180px] max-w-[225px] cursor-pointer overflow-hidden bg-[white] p-0"
+  >
+    <a
+      class="absolute inset-x-0 top-0 z-[1] m-0 bg-[rgba(44,44,44,0.7)] p-1 text-[white] text-xs whitespace-nowrap overflow-hidden truncate"
+      data-testid="tile-name"
+    >
+      Test Item
+    </a>
+    <div
+      class="text-[#777] text-sm h-full w-full flex flex-col items-center justify-center bg-[#f9f9f9] text-center"
+      data-testid="no-image"
+    >
+      <span
+        data-testid="no-image-icon"
+      />
+      No image
+      <br />
+      available
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tile Component > matches snapshot with thumb 1`] = `
+<div>
+  <div
+    class="relative flex flex-[1_1_200px] aspect-square min-w-[140px] lg:min-w-[180px] max-w-[225px] cursor-pointer overflow-hidden bg-[white] p-0"
+  >
+    <a
+      class="absolute inset-x-0 top-0 z-[1] m-0 bg-[rgba(44,44,44,0.7)] p-1 text-[white] text-xs whitespace-nowrap overflow-hidden truncate"
+    >
+      Test Item
+    </a>
+    <img
+      alt="Test Item"
+      class="inset-0"
+      decoding="async"
+      loading="lazy"
+      src="test-thumb.jpg"
+    />
+  </div>
+</div>
+`;
+
+exports[`Tile Component > matches snapshot without thumb 1`] = `
+<div>
+  <div
+    class="relative flex flex-[1_1_200px] aspect-square min-w-[140px] lg:min-w-[180px] max-w-[225px] cursor-pointer overflow-hidden bg-[white] p-0"
+  >
+    <a
+      class="absolute inset-x-0 top-0 z-[1] m-0 bg-[rgba(44,44,44,0.7)] p-1 text-[white] text-xs whitespace-nowrap overflow-hidden truncate"
+    >
+      Test Item
+    </a>
+    <div
+      class="text-[#777] text-sm h-full w-full flex flex-col items-center justify-center bg-[#f9f9f9] text-center"
+    >
+      <span
+        data-testid="no-image-icon"
+      />
+      No image
+      <br />
+      available
+    </div>
+  </div>
+</div>
+`;
