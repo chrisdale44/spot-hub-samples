@@ -1,9 +1,5 @@
 ## Spot Hub Sample Code
 
-[spot-hub.app](https://spot-hub.app)
-
-**Demo credentials:** *spothubdemo@gmail.com* / _spothub123_
-
 The following repo contains sample code and unit tests from Spot Hub, including:
 
 Components:
@@ -33,3 +29,7 @@ Postgres functions:
 The main Spot Hub repo is currently private for security reasons but access can be granted upon request.
 
 For further implementation details see the [Spot Hub Technical Overview](https://chrisdale44.github.io/spot-hub/)
+
+[spot-hub.app](https://spot-hub.app)
+
+**Demo credentials:** *spothubdemo@gmail.com* / _spothub123_
