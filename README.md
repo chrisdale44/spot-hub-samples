@@ -1,8 +1,10 @@
-# Spot Hub Sample Code
+# Spot Hub - Sample Code
 
 **A Progressive Web App designed to map action sports locations and user-generated media on a global scale**
 
-The following repo contains sample code and unit tests from Spot Hub, including:
+![](/assets/spot-hub/main.jpg)
+
+The following repo contains sample code and unit tests from the Spot Hub codebase, including:
 
 Components:
 
