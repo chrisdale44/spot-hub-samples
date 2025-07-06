@@ -6,13 +6,13 @@
 
 The following repo contains sample code and unit tests from the Spot Hub codebase, including:
 
-Components:
+### Components:
 
 - [ComboBox](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/ComboBox)
 - [Sentinel](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/Sentinel)
 - [InfiniteScrollGrid](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/InfiniteScrollGrid)
 
-Utils:
+### Utils:
 
 - [filterSpots](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpots.js)
 - [filterSpotsByCategory](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByCategory.js)
@@ -26,7 +26,7 @@ Utils:
 - [filterSpotsWithImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithImage.js)
 - [filterSpotsWithNoImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithNoImage.js)
 
-Postgres functions:
+### Postgres functions:
 
 - [get_spots_within_bounding_box](https://github.com/chrisdale44/spot-hub-samples/blob/main/supabase/migrations/get_spots_within_bounding_box.sql)
 - [get_spot_by_id_geojson](https://github.com/chrisdale44/spot-hub-samples/blob/main/supabase/migrations/get_spot_by_id_geojson.sql)
@@ -35,7 +35,7 @@ The main Spot Hub repo is currently private for security reasons but access can 
 
 For further implementation details see the [Spot Hub Technical Overview](https://chrisdale44.github.io/spot-hub/)
 
-## URL
+## MVP
 
 ### [spot-hub.app](https://spot-hub.app)
 
