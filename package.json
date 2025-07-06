@@ -1,0 +1,32 @@
+{
+  "name": "spot-hub-samples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage"
+  },
+  "author": "Chris Dale",
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.5.1",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.2"
+  },
+  "dependencies": {
+    "lodash.chunk": "^4.2.0",
+    "next": "^15.3.3",
+    "prop-types": "^15.8.1",
+    "react": "^19.1.0",
+    "react-fast-compare": "^3.2.2",
+    "react-intersection-observer": "^9.16.0"
+  }
+}
