@@ -28,7 +28,8 @@ Utils:
 
 Postgres functions:
 
-- [get_spots_within_bounding_box](https://github.com/chrisdale44/spot-hub-samples/blob/main/supabase/migrations/20250421215914_get_spots_within_bounding_box.sql)
+- [get_spots_within_bounding_box](https://github.com/chrisdale44/spot-hub-samples/blob/main/supabase/migrations/get_spots_within_bounding_box.sql)
+- [get_spot_by_id_geojson](https://github.com/chrisdale44/spot-hub-samples/blob/main/supabase/migrations/get_spots_within_bounding_box.sql)
 
 The main Spot Hub repo is currently private for security reasons but access can be granted upon request.
 
