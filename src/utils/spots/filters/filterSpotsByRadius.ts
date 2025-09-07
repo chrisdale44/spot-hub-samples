@@ -1,6 +1,10 @@
 import haversine from "haversine";
+import { SearchRadius, SpotGeoJson } from "@/types";
 
-export const filterSpotsByRadius = (spots, searchArea) => {
+export const filterSpotsByRadius = (
+  spots: SpotGeoJson[],
+  searchArea: SearchRadius,
+): SpotGeoJson[] => {
   if (!searchArea || !searchArea.radius) return spots;
   return spots.filter((spot) => {
     const spotLocation = {

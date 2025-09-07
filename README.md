@@ -14,17 +14,17 @@ The following repo contains sample code and unit tests from the Spot Hub codebas
 
 ### Utils:
 
-- [filterSpots](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpots.js)
-- [filterSpotsByCategory](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByCategory.js)
-- [filterSpotsById](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsById.js)
-- [filterSpotsByName](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByName.js)
-- [filterSpotsByRadius](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByRadius.js)
-- [filterSpotsByStatus](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByStatus.js)
-- [filterSpotsByTag](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByTag.js)
-- [filterSpotsByViewport](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByViewport.js)
-- [filterSpotsExcludeById](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsExcludeById.js)
-- [filterSpotsWithImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithImage.js)
-- [filterSpotsWithNoImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithNoImage.js)
+- [filterSpots](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpots.ts)
+- [filterSpotsByCategory](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByCategory.ts)
+- [filterSpotsById](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsById.ts)
+- [filterSpotsByName](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByName.ts)
+- [filterSpotsByRadius](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByRadius.ts)
+- [filterSpotsByStatus](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByStatus.ts)
+- [filterSpotsByTag](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByTag.ts)
+- [filterSpotsByViewport](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsByViewport.ts)
+- [filterSpotsExcludeById](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsExcludeById.ts)
+- [filterSpotsWithImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithImage.ts)
+- [filterSpotsWithNoImage](https://github.com/chrisdale44/spot-hub-samples/blob/main/src/utils/spots/filters/filterSpotsWithNoImage.ts)
 
 ### Postgres functions:
 
