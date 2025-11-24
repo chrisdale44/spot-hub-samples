@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: Slide > should render the slide component 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-[0_0_100%] justify-center max-w-full"
+    data-index="4"
+    data-testid="slide"
+  >
+    <div
+      class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+      style="aspect-ratio: 1/1;"
+    >
+      <img
+        alt="Your alt text"
+        class="object-contain cursor-pointer"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        src="https://example.com/image"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

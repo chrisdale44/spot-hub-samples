@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: InfiniteScrollGrid > renders initial chunk of items 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))] lg:grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] gap-2 p-2 max-w-[1280px] m-[0_auto]"
+  >
+    <div
+      data-testid="tile"
+    >
+      Item 0
+    </div>
+    <div
+      data-testid="tile"
+    >
+      Item 1
+    </div>
+    <div
+      data-testid="tile"
+    >
+      Item 2
+    </div>
+    <div
+      data-testid="tile"
+    >
+      Item 3
+    </div>
+    <div
+      data-testid="tile"
+    >
+      Item 4
+    </div>
+    <div
+      data-testid="sentinel"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`COMPONENT: InfiniteScrollGrid > renders nothing when items are empty 1`] = `<DocumentFragment />`;

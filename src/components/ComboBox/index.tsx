@@ -1,7 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import { IoClose } from "@/icons";
 import { filterOptions, boldenString } from "./utils";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { Option } from "./types";
+
+type ComboBoxProps<
+  TFormValues extends Record<string, any> = Record<string, any>
+> = {
+  allOptions: Option[];
+  onSelection: (option: Option) => void;
+  onClear?: () => void;
+  onSubmit: (value: string) => void;
+  submitIcon?: React.ReactNode;
+  placeholder?: string;
+  notFoundMessage?: string;
+  register?: UseFormRegister<TFormValues>;
+  errors?: FieldErrors<TFormValues>;
+  name: keyof TFormValues;
+};
 
 const ComboBox = ({
   allOptions,
@@ -11,68 +27,76 @@ const ComboBox = ({
   submitIcon,
   placeholder,
   notFoundMessage,
-}) => {
-  const inputRef = useRef(null);
-  const [value, setValue] = useState("");
-  const [options, setOptions] = useState(
+  register,
+  errors,
+  name,
+}: ComboBoxProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState<string>("");
+  const [options, setOptions] = useState<Array<Option>>(
     allOptions?.length ? filterOptions(allOptions, value) : []
   );
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   useEffect(() => {
-    setOptions(filterOptions(allOptions, value));
+    if (allOptions?.length) {
+      setOptions(filterOptions(allOptions, value));
+    }
   }, [allOptions, value]);
 
-  const handleInputChange = (event) => {
-    event.persist();
-    setValue(event.target.value);
-    setOptions(filterOptions(allOptions, event.target.value));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setValue(e.target.value);
+    if (allOptions?.length) {
+      setOptions(filterOptions(allOptions, e.target.value));
+    }
   };
 
-  const handleOnMouseDown = (e) => {
+  const handleOnMouseDown = (e: React.MouseEvent<HTMLLIElement>) => {
     // prevent onMouseDown triggering onBlur event before onClick event
     e.preventDefault();
   };
 
-  const handleOnKeyDown = (e) => {
+  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.persist();
-    if (e.keyCode === 13 || e.key === "Enter") {
+    if (e.key === "Enter") {
       e.preventDefault();
-      onSubmit(e.target.value);
+      onSubmit(e.currentTarget.value);
       if (!onClear) {
         setValue("");
       }
     }
   };
 
-  const handleClick = (e, id) => {
+  const handleClick = (e: React.MouseEvent, option: Option) => {
     e.persist();
     e.stopPropagation();
 
-    onSelection(id);
+    onSelection(option);
     setValue("");
     setIsFocused(false);
-    inputRef.current.blur();
+    inputRef.current?.blur();
   };
 
-  const handleOnBlur = (e) => {
+  const handleOnBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.persist();
     setIsFocused(false);
   };
 
-  const handleClear = (e) => {
+  const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setValue("");
     if (onClear) onClear();
   };
 
   return (
-    <div className="relative mb-[10px] h-full" data-testid="combobox">
+    <div className="relative" data-testid="combobox">
       <div className="relative">
         <input
+          {...(register ? register(name) : {})}
           ref={inputRef}
           type="text"
-          name="tag"
+          name={name}
           value={value}
           autoComplete={"off"}
           className="w-full px-4 py-2 text-sm text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -108,11 +132,11 @@ const ComboBox = ({
               </li>
             ))}
           </ul>
-        ) : (
+        ) : notFoundMessage ? (
           <div className="absolute top-[38px] left-[1px] right-[1px] p-[8px] bg-[#ccc] overflow-y-auto text-[12px] text-[#666] z-[999] rounded-b shadow">
             {notFoundMessage}
           </div>
-        )
+        ) : null
       ) : null}
       {submitIcon && (
         <button
@@ -126,17 +150,13 @@ const ComboBox = ({
           {submitIcon}
         </button>
       )}
+      {typeof errors?.[name]?.message === "string" && (
+        <p className="mt-1 text-sm text-red-600">{errors[name].message}</p>
+      )}
     </div>
   );
 };
 
-ComboBox.propTypes = {
-  allOptions: PropTypes.arrayOf(PropTypes.object),
-  onSelection: PropTypes.func.isRequired,
-  onClear: PropTypes.func,
-  onSubmit: PropTypes.func.isRequired,
-  submitIcon: PropTypes.node,
-  placeholder: PropTypes.string,
-};
+ComboBox.displayName = "ComboBox";
 
 export default ComboBox;

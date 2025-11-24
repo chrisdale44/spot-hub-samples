@@ -1,0 +1,466 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: CarouselWithThumbs > should display a message when there are no slides 1`] = `
+<DocumentFragment>
+  <div
+    class="relative h-[80%] md:h-[80%] overflow-hidden"
+    data-testid="carousel-with-thumbs"
+  >
+    <div
+      class="flex h-full touch-pan-y"
+      style="backface-visibility: hidden;"
+    >
+      <div
+        class="flex items-center justify-center w-full h-full"
+      >
+        <div
+          class="text-[#ccc]"
+        >
+          No images to display
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="h-[20%] md:h-[20%] p-2 pb-0 overflow-hidden"
+  >
+    <div
+      class="flex h-full max-w-full gap-2 touch-pan-y"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`COMPONENT: CarouselWithThumbs > should render the carousel-with-thumbs component 1`] = `
+<DocumentFragment>
+  <div
+    class="relative h-[80%] md:h-[80%] overflow-hidden"
+    data-testid="carousel-with-thumbs"
+  >
+    <div
+      class="flex h-full touch-pan-y"
+      style="backface-visibility: hidden;"
+    >
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="0"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="1"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="2"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      class="absolute right-0 md:right-[20px] top-2/4 flex h-14 w-14 -translate-y-2/4 items-center justify-center bg-transparent text-3xl text-[#000] opacity-30"
+      data-testid="carousel-next-button"
+      type="button"
+    >
+      <svg
+        class="w-12 h-12"
+        fill="currentColor"
+        height="200px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="200px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m184 112 144 144-144 144"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="48"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="h-[20%] md:h-[20%] p-2 pb-0 overflow-hidden"
+  >
+    <div
+      class="flex h-full max-w-full gap-2 touch-pan-y"
+    >
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-0"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer h-full w-full object-contain opacity-100"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+      </div>
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-1"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer opacity-40 h-full w-full object-contain"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+      </div>
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-2"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer opacity-40 h-full w-full object-contain"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`COMPONENT: CarouselWithThumbs > when isEditing is true > should render the DropZone component 1`] = `
+<DocumentFragment>
+  <div
+    class="relative h-[80%] md:h-[80%] overflow-hidden"
+    data-testid="carousel-with-thumbs"
+  >
+    <div
+      class="flex h-full touch-pan-y"
+      style="backface-visibility: hidden;"
+    >
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="0"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="1"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+        data-index="2"
+        data-testid="slide"
+      >
+        <div
+          class="relative flex flex-col justify-center object-contain max-w-[100vw] max-h-[100vh] overflow-hidden"
+          style="aspect-ratio: 1/1;"
+        >
+          <img
+            alt="Your alt text"
+            class="object-contain cursor-pointer"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="https://example.com/image"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-[0_0_100%] justify-center max-w-full"
+      >
+        <div
+          class="w-[480px] h-full p-2"
+        >
+          <div
+            class="border-[1px] border-dashed border-[#999] flex flex-col h-full cursor-pointer m-0 rounded-[3px] hover:border-[1px] hover:border-dashed hover:border-[#666] hover:bg-[#eee] focus:border-[1px] focus:border-dashed focus:border-[#666] focus:bg-[#eee] mb-2"
+            data-testid="dropzone"
+          >
+            <input
+              name="images"
+            />
+            <label
+              class="flex w-full flex-1 items-center justify-center text-[#666] text-[12px] p-6 cursor-pointer"
+              for="images"
+            >
+              Drag 'n' drop files here, or click to select
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="absolute right-0 md:right-[20px] top-2/4 flex h-14 w-14 -translate-y-2/4 items-center justify-center bg-transparent text-3xl text-[#000] opacity-30"
+      data-testid="carousel-next-button"
+      type="button"
+    >
+      <svg
+        class="w-12 h-12"
+        fill="currentColor"
+        height="200px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="200px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m184 112 144 144-144 144"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="48"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="h-[20%] md:h-[20%] p-2 pb-0 overflow-hidden"
+  >
+    <div
+      class="flex h-full max-w-full gap-2 touch-pan-y"
+    >
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-0"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer h-full w-full object-contain opacity-100"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+        <button
+          class="absolute bottom-1 right-1 text-[#b72020] text-xl cursor-pointer"
+          type="button"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="200px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="200px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M0 0h24v24H0V0z"
+              fill="none"
+            />
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-1"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer opacity-40 h-full w-full object-contain"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+        <button
+          class="absolute bottom-1 right-1 text-[#b72020] text-xl cursor-pointer"
+          type="button"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="200px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="200px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M0 0h24v24H0V0z"
+              fill="none"
+            />
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+        data-testid="thumbnail"
+        draggable="true"
+        id="col-2"
+        style="aspect-ratio: 1/1;"
+      >
+        <img
+          alt="Your alt text"
+          class="cursor-pointer opacity-40 h-full w-full object-contain"
+          decoding="async"
+          loading="lazy"
+          src="https://example.com/image"
+        />
+        <button
+          class="absolute bottom-1 right-1 text-[#b72020] text-xl cursor-pointer"
+          type="button"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="200px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="200px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M0 0h24v24H0V0z"
+              fill="none"
+            />
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </button>
+      </div>
+      <button
+        class="flex justify-center h-full px-2 align-middle"
+        type="button"
+      >
+        <svg
+          class="w-8 h-8 text-[#ccc] self-center"
+          fill="none"
+          height="200px"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="200px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"
+          />
+          <path
+            d="M9 12h6"
+          />
+          <path
+            d="M12 9v6"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

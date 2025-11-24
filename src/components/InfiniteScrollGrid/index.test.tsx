@@ -1,13 +1,22 @@
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import InfiniteScrollGrid from ".";
 import Tile from "./Tile";
-import Sentinel from "../Sentinel";
-import chunk from "lodash.chunk";
+import type { Item } from "./types";
+
+declare global {
+  interface Window {
+    __triggerSentinel?: ((isVisible: boolean) => void) | null;
+  }
+}
 
 vi.mock("./Tile", () => ({
-  default: vi.fn(({ item }) => <div data-testid="tile">{item.name}</div>),
+  default: vi.fn(({ item, onClick }) => (
+    <div data-testid="tile" onClick={() => onClick(item)}>
+      {item.name}
+    </div>
+  )),
 }));
 
 vi.mock("../Sentinel", () => ({
@@ -18,8 +27,8 @@ vi.mock("../Sentinel", () => ({
 }));
 
 vi.mock("lodash.chunk", () => ({
-  default: vi.fn((arr, size) => {
-    const result = [];
+  default: vi.fn(<T,>(arr: T[], size: number): T[][] => {
+    const result: T[][] = [];
     for (let i = 0; i < arr.length; i += size) {
       result.push(arr.slice(i, i + size));
     }
@@ -28,8 +37,8 @@ vi.mock("lodash.chunk", () => ({
 }));
 
 describe("COMPONENT: InfiniteScrollGrid", () => {
-  const mockParseItem = (item) => ({ ...item, parsed: true });
-  const mockItems = Array.from({ length: 20 }, (_, i) => ({
+  const mockParseItem = (item: Item) => ({ ...item, parsed: true });
+  const mockItems: Item[] = Array.from({ length: 20 }, (_, i) => ({
     id: i,
     name: `Item ${i}`,
     thumb: `thumb_${i}`,
@@ -39,22 +48,23 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    window.__triggerSentinel = null;
+    delete window.__triggerSentinel;
   });
 
   it("renders nothing when items are empty", () => {
-    const { container } = render(
+    const screen = render(
       <InfiniteScrollGrid
         items={[]}
         chunkSize={5}
         onTileClick={mockOnTileClick}
       />
     );
-    expect(container).toBeEmptyDOMElement();
+    expect(screen.container).toBeEmptyDOMElement();
+    expect(screen.asFragment()).toMatchSnapshot();
   });
 
   it("renders initial chunk of items", () => {
-    render(
+    const screen = render(
       <InfiniteScrollGrid
         items={mockItems}
         chunkSize={5}
@@ -63,10 +73,11 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
     );
 
     expect(screen.getAllByTestId("tile")).toHaveLength(5);
+    expect(screen.asFragment()).toMatchSnapshot();
   });
 
   it("loads more items when Sentinel comes into view", async () => {
-    render(
+    const screen = render(
       <InfiniteScrollGrid
         items={mockItems}
         chunkSize={5}
@@ -77,14 +88,14 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
     expect(screen.getAllByTestId("tile")).toHaveLength(5);
 
     await act(async () => {
-      window.__triggerSentinel(true);
+      window.__triggerSentinel?.(true);
     });
 
     expect(screen.getAllByTestId("tile")).toHaveLength(10);
   });
 
-  it("stops loading when all chunks are displayed", async () => {
-    render(
+  it("does not load additional chunks when all items have been displayed", async () => {
+    const screen = render(
       <InfiniteScrollGrid
         items={mockItems.slice(0, 10)} // Only 10 items
         chunkSize={5}
@@ -97,19 +108,19 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
 
     // First trigger - load next 5 (total 10)
     await act(async () => {
-      window.__triggerSentinel(true);
+      window.__triggerSentinel?.(true);
     });
     expect(screen.getAllByTestId("tile")).toHaveLength(10);
 
     // Second trigger - no more items to load
     await act(async () => {
-      window.__triggerSentinel(true);
+      window.__triggerSentinel?.(true);
     });
     expect(screen.getAllByTestId("tile")).toHaveLength(10);
   });
 
   it("should reset chunks when items array changes length", async () => {
-    const { rerender } = render(
+    const screen = render(
       <InfiniteScrollGrid
         items={mockItems.slice(0, 10)}
         chunkSize={5}
@@ -118,11 +129,11 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
     );
 
     await act(async () => {
-      window.__triggerSentinel(true);
+      window.__triggerSentinel?.(true);
     });
     expect(screen.getAllByTestId("tile")).toHaveLength(10);
 
-    rerender(
+    screen.rerender(
       <InfiniteScrollGrid
         items={mockItems.slice(0, 15)}
         chunkSize={5}
@@ -149,6 +160,22 @@ describe("COMPONENT: InfiniteScrollGrid", () => {
         item: expect.objectContaining({ parsed: true }),
       }),
       expect.anything()
+    );
+  });
+
+  it("calls onTileClick when a Tile is clicked", () => {
+    const screen = render(
+      <InfiniteScrollGrid
+        items={mockItems.slice(0, 5)}
+        chunkSize={5}
+        onTileClick={mockOnTileClick}
+      />
+    );
+
+    const tiles = screen.getAllByTestId("tile");
+    tiles[0].click();
+    expect(mockOnTileClick).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 0 })
     );
   });
 });

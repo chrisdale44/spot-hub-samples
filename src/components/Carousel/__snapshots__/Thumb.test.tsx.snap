@@ -1,0 +1,107 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: Thumb > should render the thumb component with an image 1`] = `
+<DocumentFragment>
+  <div
+    class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+    data-testid="thumbnail"
+    draggable="true"
+    id="col-0"
+    style="aspect-ratio: 1/1;"
+  >
+    <img
+      alt="Your alt text"
+      class="cursor-pointer h-full w-full object-contain opacity-100"
+      decoding="async"
+      loading="lazy"
+      src="https://example.com/image.jpg"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`COMPONENT: Thumb > when isEditing is true > should render the delete button 1`] = `
+<DocumentFragment>
+  <div
+    class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+    data-testid="thumbnail"
+    draggable="true"
+    id="col-0"
+    style="aspect-ratio: 1/1;"
+  >
+    <img
+      alt="Your alt text"
+      class="cursor-pointer h-full w-full object-contain opacity-100"
+      decoding="async"
+      loading="lazy"
+      src="https://example.com/image.jpg"
+    />
+    <button
+      class="absolute bottom-1 right-1 text-[#b72020] text-xl cursor-pointer"
+      type="button"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="currentColor"
+        height="200px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="200px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`COMPONENT: Thumb > when isEditing is true > should render the undo button when toDelete is true 1`] = `
+<DocumentFragment>
+  <div
+    class="relative self-center w-auto h-full inline-flex cursor-pointer before:content-[''] before:absolute before:h-[4.25rem]"
+    data-testid="thumbnail"
+    draggable="true"
+    id="col-0"
+    style="aspect-ratio: 1/1;"
+  >
+    <img
+      alt="Your alt text"
+      class="cursor-pointer h-full w-full object-contain opacity-100"
+      decoding="async"
+      loading="lazy"
+      src="https://example.com/image.jpg"
+    />
+    <button
+      class="absolute bottom-1 right-1 text-[#349028] text-xl cursor-pointer"
+      type="button"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="currentColor"
+        height="200px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="200px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M448 440a16 16 0 0 1-12.61-6.15c-22.86-29.27-44.07-51.86-73.32-67C335 352.88 301 345.59 256 344.23V424a16 16 0 0 1-27 11.57l-176-168a16 16 0 0 1 0-23.14l176-168A16 16 0 0 1 256 88v80.36c74.14 3.41 129.38 30.91 164.35 81.87C449.32 292.44 464 350.9 464 424a16 16 0 0 1-16 16z"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;

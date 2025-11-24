@@ -1,10 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { render, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import ComboBox from ".";
+import { Option } from "./types";
 
 describe("COMPONENT: ComboBox", () => {
-  const mockOptions = [
+  const mockOptions: Option[] = [
     { id: 1, name: "Apple" },
     { id: 2, name: "Banana" },
     { id: 3, name: "Orange" },
@@ -15,12 +16,17 @@ describe("COMPONENT: ComboBox", () => {
   const mockOnSubmit = vi.fn();
   const mockOnClear = vi.fn();
 
-  const defaultProps = {
-    allOptions: mockOptions,
-    onSelection: mockOnSelection,
-    onSubmit: mockOnSubmit,
-    placeholder: "Search...",
-    notFoundMessage: "No results found",
+  const comboBoxFactory = (props = {}) => {
+    const defaultProps = {
+      allOptions: mockOptions,
+      onSelection: mockOnSelection,
+      onSubmit: mockOnSubmit,
+      placeholder: "Search...",
+      notFoundMessage: "No results found",
+      name: "combobox",
+    };
+
+    return render(<ComboBox {...defaultProps} {...props} />);
   };
 
   beforeEach(() => {
@@ -28,18 +34,19 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("should render the combobox component", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     expect(screen.getByTestId("combobox")).toBeInTheDocument();
+    expect(screen.asFragment()).toMatchSnapshot();
   });
 
   it("renders the input field with placeholder", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     expect(input).toBeInTheDocument();
   });
 
   it("shows options when input is focused", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.focus(input);
 
@@ -48,7 +55,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("filters options based on input value", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.focus(input);
     fireEvent.change(input, { target: { value: "app" } });
@@ -60,7 +67,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("shows not found message when no options match", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.focus(input);
     fireEvent.change(input, { target: { value: "xyz" } });
@@ -70,7 +77,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("calls onSelection when an option is clicked", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.focus(input);
     fireEvent.click(screen.getAllByRole("listitem")[0]);
@@ -80,7 +87,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("calls onSubmit when Enter is pressed", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.keyDown(input, { key: "Enter", code: "Enter", keyCode: 13 });
@@ -90,7 +97,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("shows clear button when input has value", () => {
-    render(<ComboBox {...defaultProps} />);
+    const screen = comboBoxFactory();
     const input = screen.getByTestId("combobox-input");
     fireEvent.change(input, { target: { value: "test" } });
 
@@ -98,7 +105,7 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("clears input when clear button is clicked", () => {
-    render(<ComboBox {...defaultProps} onClear={mockOnClear} />);
+    const screen = comboBoxFactory({ onClear: mockOnClear });
     const input = screen.getByTestId("combobox-input");
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.click(screen.getByTestId("close-icon"));
@@ -108,12 +115,12 @@ describe("COMPONENT: ComboBox", () => {
   });
 
   it("renders submit icon button when provided", () => {
-    render(<ComboBox {...defaultProps} submitIcon="Go" />);
+    const screen = comboBoxFactory({ submitIcon: "Go" });
     expect(screen.getByText("Go")).toBeInTheDocument();
   });
 
   it("calls onSubmit when submit icon is clicked", () => {
-    render(<ComboBox {...defaultProps} submitIcon="Go" />);
+    const screen = comboBoxFactory({ submitIcon: "Go" });
     const input = screen.getByTestId("combobox-input");
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.click(screen.getByText("Go"));

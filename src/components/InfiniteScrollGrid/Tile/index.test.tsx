@@ -1,14 +1,13 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import Tile from ".";
-import { MdImageNotSupported } from "@/icons/";
-import Image from "next/image";
 
 vi.mock("next/image", () => ({
   default: vi.fn(({ fill, unoptimized, ...props }) => (
     <img
       {...props}
+      alt="Test Item"
       data-test-fill={fill ? "true" : "false"}
       data-test-unoptimized={unoptimized ? "true" : "false"}
     />
@@ -22,6 +21,7 @@ vi.mock("@/icons/", () => ({
 describe("COMPONENT: Tile", () => {
   const mockOnClick = vi.fn();
   const baseItem = {
+    id: 1,
     name: "Test Item",
     thumb: "test-thumb.jpg",
   };
@@ -81,7 +81,7 @@ describe("COMPONENT: Tile", () => {
       const itemWithoutThumb = { ...baseItem, thumb: undefined };
       render(<Tile item={itemWithoutThumb} onClick={mockOnClick} />);
 
-      fireEvent.click(screen.queryByTestId("no-image"));
+      fireEvent.click(screen.getByTestId("no-image"));
       expect(mockOnClick).toHaveBeenCalledTimes(1);
     });
   });

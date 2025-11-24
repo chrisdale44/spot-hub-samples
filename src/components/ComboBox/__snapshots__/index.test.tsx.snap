@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT: ComboBox > should render the combobox component 1`] = `
+<DocumentFragment>
+  <div
+    class="relative"
+    data-testid="combobox"
+  >
+    <div
+      class="relative"
+    >
+      <input
+        autocomplete="off"
+        class="w-full px-4 py-2 text-sm text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        data-testid="combobox-input"
+        name="combobox"
+        placeholder="Search..."
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
