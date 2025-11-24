@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { IoClose } from "@/icons";
-import { filterOptions, boldenString } from "./utils";
-import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import { filterOptions } from "./utils";
 import { Option } from "./types";
+import SubmitButton from "./SubmitButton";
+import OptionsList from "./OptionsList";
+import ComboBoxInput from "./ComboBoxInput";
+import ClearButton from "./ClearButton";
 
 type ComboBoxProps<
   TFormValues extends Record<string, any> = Record<string, any>
@@ -14,8 +17,6 @@ type ComboBoxProps<
   submitIcon?: React.ReactNode;
   placeholder?: string;
   notFoundMessage?: string;
-  register?: UseFormRegister<TFormValues>;
-  errors?: FieldErrors<TFormValues>;
   name: keyof TFormValues;
 };
 
@@ -27,8 +28,6 @@ const ComboBox = ({
   submitIcon,
   placeholder,
   notFoundMessage,
-  register,
-  errors,
   name,
 }: ComboBoxProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -37,6 +36,9 @@ const ComboBox = ({
     allOptions?.length ? filterOptions(allOptions, value) : []
   );
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const {
+    formState: { errors },
+  } = useFormContext();
 
   useEffect(() => {
     if (allOptions?.length) {
@@ -89,49 +91,35 @@ const ComboBox = ({
     if (onClear) onClear();
   };
 
+  const handleSubmit = () => {
+    onSubmit(value);
+    setValue("");
+  };
+
   return (
     <div className="relative" data-testid="combobox">
       <div className="relative">
-        <input
-          {...(register ? register(name) : {})}
-          ref={inputRef}
-          type="text"
+        <ComboBoxInput
           name={name}
+          inputRef={inputRef}
           value={value}
-          autoComplete={"off"}
-          className="w-full px-4 py-2 text-sm text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-          onChange={handleInputChange}
-          onKeyDown={handleOnKeyDown}
-          onFocus={() => setIsFocused(true)}
-          onBlur={handleOnBlur}
+          handleInputChange={handleInputChange}
+          handleOnKeyDown={handleOnKeyDown}
+          setIsFocused={setIsFocused}
+          handleOnBlur={handleOnBlur}
           placeholder={placeholder}
-          data-testid="combobox-input"
         />
-        {value && (
-          <button
-            type="button"
-            className="bg-transparent absolute top-[4px] right-[2px] p-[6px] cursor-pointer text-[16px] leading-[16px] text-[#666]"
-            onClick={handleClear}
-          >
-            <IoClose className="w-5 h-5" data-testid="close-icon" />
-          </button>
-        )}
+        {value && <ClearButton handleClear={handleClear} />}
       </div>
 
       {isFocused ? (
         options?.length ? (
-          <ul className="absolute top-[38px] left-[1px] right-[1px] bg-[#fff] min-h-[100px] max-h-[160px] overflow-y-auto text-[12px] text-[#666] z-[999] rounded-b shadow">
-            {options.map((option, i) => (
-              <li
-                key={option.id || `option-${i}`}
-                className="leading-[1em] p-[8px] no-underline cursor-pointer hover:bg-[#f0f0f0]  focus:bg-[#f0f0f0]"
-                onClick={(e) => handleClick(e, option)}
-                onMouseDown={handleOnMouseDown}
-              >
-                {boldenString(option.name, value)}
-              </li>
-            ))}
-          </ul>
+          <OptionsList
+            options={options}
+            handleClick={handleClick}
+            handleOnMouseDown={handleOnMouseDown}
+            value={value}
+          />
         ) : notFoundMessage ? (
           <div className="absolute top-[38px] left-[1px] right-[1px] p-[8px] bg-[#ccc] overflow-y-auto text-[12px] text-[#666] z-[999] rounded-b shadow">
             {notFoundMessage}
@@ -139,16 +127,7 @@ const ComboBox = ({
         ) : null
       ) : null}
       {submitIcon && (
-        <button
-          type="button"
-          className="bg-[#1e6cab] ml-[4px] mr-[0] my-[4px] p-[4px] w-[28px] text-[white] rounded-[2px] leading-[14px] text-[14px]"
-          onClick={() => {
-            onSubmit(value);
-            setValue("");
-          }}
-        >
-          {submitIcon}
-        </button>
+        <SubmitButton handleSubmit={handleSubmit} icon={submitIcon} />
       )}
       {typeof errors?.[name]?.message === "string" && (
         <p className="mt-1 text-sm text-red-600">{errors[name].message}</p>

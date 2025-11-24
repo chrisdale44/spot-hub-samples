@@ -3,8 +3,24 @@ import { render, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import ComboBox from ".";
 import { Option } from "./types";
+import { useFormContext } from "react-hook-form";
+
+vi.mock("react-hook-form", async () => {
+  const actual = await vi.importActual<any>("react-hook-form");
+
+  return {
+    ...actual,
+    useFormContext: vi.fn(),
+  };
+});
 
 describe("COMPONENT: ComboBox", () => {
+  const mockUseFormContext = {
+    register: vi.fn(),
+    formState: {
+      errors: {},
+    },
+  };
   const mockOptions: Option[] = [
     { id: 1, name: "Apple" },
     { id: 2, name: "Banana" },
@@ -30,6 +46,7 @@ describe("COMPONENT: ComboBox", () => {
   };
 
   beforeEach(() => {
+    (useFormContext as any).mockReturnValue(mockUseFormContext);
     vi.clearAllMocks();
   });
 
