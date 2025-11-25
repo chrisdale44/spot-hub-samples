@@ -11,6 +11,8 @@ The following repo contains sample code and unit tests from the Spot Hub codebas
 - [ComboBox](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/ComboBox)
 - [Sentinel](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/Sentinel)
 - [InfiniteScrollGrid](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/InfiniteScrollGrid)
+- [Carousel](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/Carousel)
+- [FormStepper](https://github.com/chrisdale44/spot-hub-samples/tree/main/src/components/FormStepper)
 
 ### Utils:
 
